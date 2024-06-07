@@ -1,0 +1,440 @@
+/* 텍스트 등 공통 적용 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #ffffff;
+  font-family: 'Nanum Gothlic', sans-serif;
+}
+a {
+  text-decoration: none;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+nav a:link, a:visited {
+  color: #0a1128;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.7em;
+}
+h3 {
+  font-size: 1.5em;
+}
+h4 {
+  font-size: 1.2em;
+  line-height: 1.7;
+}
+h5 {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+p {
+  font-size: 1em;
+  line-height: 1.7;
+  margin-left: 30px;
+  text-indent: -20px;
+}
+p:before {
+  content:"●";
+  color: #1282a2;
+  margin: 5px;
+  font-size: 0.7em;
+}
+.annotation:before {
+  content:none;
+}
+.annotation {
+  font-size: 0.7em;
+  line-height: 1.2;
+  margin-top: 20px;
+}
+figcaption {
+  font-size: 0.7em;
+  line-height: 1.2;
+}
+.unit{
+  font-size: 0.8em;
+  text-align: right;
+  margin: 3px;
+  margin-top: -20px;
+  font-weight: normal;
+}
+.tpt ul li, .tpt-sub ul li {
+  font-size: 1em;
+  line-height: 2;
+  margin-left: 50px;
+  list-style-type: circle;
+  line-height: 1.7;
+}
+.tpt-sub h5 {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+article {
+  padding: 20px 20px;
+  padding-top: 70px;
+  padding-bottom:70px;
+}
+.go-left{
+  margin-left: 50px;
+}
+ul li::marker {
+  color: #1282a2;
+}
+ol li {
+  margin-top: 5px;
+  margin-left: 30px;
+}
+ol {
+  margin: 10px 30px;
+  margin-top: 20px;
+  margin-right: 70px;
+}
+
+/* navi 영역 */
+header {
+  position: fixed;
+}
+.layout {
+  width: 200%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #001f54;
+}
+.layout > * {
+  padding: 30px 0;
+}
+.menus {
+  position: relative;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menus [type="radio"]:checked + label + .content {
+  z-index: 1;
+  display: block;
+}
+.menu { 
+  float: left;
+  position: relative;
+  padding: 0;
+
+}
+.menu > label {
+  background-color: #001f54;
+  padding: 1em 4em 1em 2em;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  position: relative;
+}
+label{
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.menu > label::after {
+  content: "▼";
+  font-style: normal;
+  color: #fff;
+  position: absolute;
+  top: 17px;
+  margin-left: 0.5em;
+  line-height: 1.3;
+}
+.content ul li img, span {
+  vertical-align: middle;
+}
+.menu input {
+  display: none; 
+}
+.menu .content {
+  position: absolute;
+  top: 100%;
+  display: none;
+  left: 0;
+  background: #034078;
+  color: #fff;
+  padding: 20px;
+}
+.menu .content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu .content a, .menu .content input + label {
+  display: block;
+  color: #fff;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 5px;
+  cursor: pointer;
+}
+.menu .content input + label{
+  padding-right: 24px;
+}
+.menu .content ul li:nth-child(n + 2){
+  border-top: 1px solid #eee;
+}
+.menu [type="radio"]:checked + label {
+  background-color: #fff;
+  color: #0a1128;
+  z-index: 2;
+}
+.menu > [type="radio"]:checked + label::after {
+  content: "▲";
+  color: #0a1128;
+}
+.submenu{
+  display: none;
+  position: absolute;
+  background-color: #1282a2;
+  padding: 20px;
+  left: 100%;
+  margin: -16px 0 0 -16px;
+}
+.menu .content input:checked + label + .submenu { 
+  z-index: 1;
+  display: block;
+}
+.menu > .content > ul > li > input + label::after {
+  content: "▶";
+  position: absolute;
+  bottom: 25px;
+  margin-left: 0.5em;
+  line-height: 1.2;
+  font-weight: 600;
+}
+.menu > .content > ul > li > input:checked + label::after {
+  content: "◀";
+}
+
+/* article 영역 */
+details { 
+  padding: 0 2rem;
+  margin:5px 0 20px;
+}
+details > summary { 
+  background: #001f54;
+  color:#fff;
+  padding:10px;
+  outline:0;
+  border-radius:5px;
+  cursor:pointer;
+  text-align:left;
+  box-shadow: 1px 1px 2px gray;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  display: block;
+  padding: 2rem 3rem 2rem 0;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+summary::before,
+summary::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 2px;
+  background-color: #fff;
+  right: 2rem;
+  top: 1.6rem;
+}
+summary::after {
+  transform: rotateZ(90deg);
+}
+
+details[open] summary::after {
+  display: none;
+}
+details > summary::-webkit-details-marker { 
+  background:#001f54; 
+  color:#fff; 
+  background-size:contain; 
+  transform:rotate3d(0, 0, 1, 90deg); 
+  transition:transform 0.25s;
+}
+details[open] > summary { 
+  background:#034078;
+}
+details[open] > summary ~ * { 
+  animation:reveal 0.5s;
+}
+.tpt { 
+  background:#fff; 
+  color:#0a1128; 
+  margin:5px 0 10px; 
+  padding:20px 20px;
+  border: 1px solid #034078;
+  border-radius:5px; 
+  box-shadow: 2px 2px 2px gray;
+}
+.tpt-sub { 
+  background:#fff; 
+  color:#0a1128; 
+  margin:5px 0 10px; 
+  padding:20px 20px;
+  border: 1px solid #034078;
+  border-radius:5px; 
+  box-shadow: 2px 2px 2px gray;
+}
+.tpt-table-sub { 
+  background:#fff; 
+  color:#0a1128; 
+  margin:5px 0 10px; 
+  padding:20px 20px;
+  border: 1px solid #034078;
+  border-radius:5px; 
+  box-shadow: 2px 2px 2px gray;
+}
+
+@keyframes reveal {
+    from { opacity:0; transform:translate3d(0, -30px, 0); }
+    to { opacity:1; transform:translate3d(0, 0, 0); }
+}
+
+div .layout {
+width: 2000px;
+display: flex;
+justify-content: space-between;
+background-color: #001f54;
+}
+header{
+  z-index:1
+}
+
+body::-webkit-scrollbar {
+  width: 15px;
+}
+body::-webkit-scrollbar-thumb {
+  height: 20%;
+  background: #1282a2;
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);
+}
+
+
+
+/* table 부분*/
+table {
+  margin: 20px auto;
+  width: 90%;
+
+}
+table, td, th {
+  border-collapse : collapse;
+  text-align: center;
+  vertical-align:middle;
+  padding: 10px;
+}
+th {
+  background-color: #eeeeee;
+  border-top : 2px solid #0a1128;
+  border-bottom : 2px solid #0a1128;
+}
+td { 
+  border-top : 1px solid #0a1128;
+}
+tr:last-child > td {
+  border-bottom : 2px solid #0a1128;
+}
+table caption{
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+#t1{
+  border-bottom : 2px solid #0a1128;
+}
+.th-color {
+  background-color: #eeeeee;
+  font-weight: bold;
+}
+table ul li, .taj {
+  text-align: justify;
+}
+#cleaning, #autoclave{
+  border: 2px solid #034078;
+  width: 95%;
+  margin: 10px auto;
+}
+#cleaning h5 {
+  display: inline;
+  font-size: 1.5em;
+  background-color: #1282a2;
+  color: #eee;
+}
+#h5-title {
+  font-size: 1.5em;
+  background-color: #001f54;
+  color: #eee;
+  line-height: 2;
+  padding-left: 10px;
+}
+#sorting-patient, #sorting-infectivity, #sorting-cleaning {
+  border: 2px dotted #034078;
+  text-align: center;
+  width: 95%;
+  margin: 10px auto;
+  padding-top: 10px;
+}
+
+#sorting-cleaning p {
+  text-align: justify;
+  margin-bottom: 5px;
+}
+
+#sorting-patient table, #sorting-cleaning table {
+  width: 80%;
+}
+#sorting-inf-table{
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 20px;
+
+}
+#arrow h6 {
+  font-size: 2.5em;
+  color: #001f54;
+  text-align: center;
+}
+#small {
+  font-size: 0.7em;
+  margin-left: 10px;
+}
+#autoclave h5 {
+  font-size: 1.5em;
+  background-color: #001f54;
+  color: #eee;
+  line-height: 2;
+  padding-left: 10px;
+}
+#autoclave {
+  padding-bottom: 10px;
+}
+
+/* footer 영역 */
+footer {
+  height: 150px;
+  background-color: #001f54;
+  color:#fff;
+}
+footer h4 {
+  text-align: center;
+  line-height: 70px;
+}
+footer h5 {
+  text-align: center;
+  line-height: 30px;
+}
